@@ -5,8 +5,8 @@
   --tertiary-theme-color: #281E48;
   --bg-color: linear-gradient(-110deg, #06142E, #0B1D41, #281E48);
   --primary-text-color: #fff;
-  --primary-color: #E161ED;
-  --primary-button-color: linear-gradient(-110deg, #6B87D5, #907AE1, #E161ED);
+  --primary-color: #DB388E;
+  --primary-button-color: linear-gradient(-110deg, #6B87D5, #907AE1, #DB388E);
   --primary-button-color-active: #fff;
   --primary-button-text-color: #000;
   --primary-highlight-color: #85d6eb;
@@ -34,20 +34,24 @@
   top: 0;
   left: 0;
   width: 100%;
+  transition: var(--primary-all-transitions);
 }
 
 .header--scroll {
-  background-image: linear-gradient(180deg,#000,#000 0,transparent);
+  background-image: linear-gradient(180deg,#000,rgba(0, 0, 0, 0.459) 0,transparent);
 }
 
 .header-nav {
-  padding: 1rem 1rem;
+  padding: 2rem 0;
 }
 
 .header-nav__container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--padding-container);
 }
 
 .header-nav__menu-icon-container {
@@ -70,6 +74,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  background-color: var(--primary-color);
   margin: 0;
   padding: 0;
   opacity: 0;
@@ -80,24 +85,25 @@
 
 .header-nav__menu-list--open {
   opacity: 1;
-  pointer-events: auto;
-  background-color: var(--primary-color);
+  pointer-events: auto;  
 }
 
 .header-nav__menu-item {
   display: flex;
+  transition: var(--primary-all-transitions);
 }
 
-.heder-nav__menu-link {
+.header-nav__menu-item:hover {
+  background-color: var(--primary-color);
+}
+
+.header-nav__menu-link {
   position: relative;
   color: var(--primary-text-color);
   text-decoration: none;
   font-weight: 400;
+  padding: 0.2rem 0.6rem;
   transition: var(--primary-all-transitions);
-}
-
-.heder-nav__menu-link:hover {
-  color: var(--primary-color);
 }
 
 .header-nav__menu-item--menu-close {
@@ -112,14 +118,15 @@
 .header-nav__menu-close-icon-container {
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 1rem 0;
   color: var(--primary-text-color);
   font-size: 1.75rem;
   cursor: pointer;
 }
 
 @media (min-width: 854px) {
-  .header-nav__container {
+
+  .header-nav__container{
     justify-content: center;
   }
 
@@ -130,14 +137,15 @@
 
   .header-nav__menu-list {
     position: static;
+    background-color: transparent;
     flex-direction: row;
-    background-image: none;
-    gap: 3rem;
+    gap: 2rem;
     opacity: 1;
     width: auto;
-    pointer-events: auto;
+    pointer-events: auto; 
   }
 }
+
 
 .hero {
   background-image: url(./img/BG.jpg);
